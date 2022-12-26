@@ -1,4 +1,4 @@
-function grid(){
+function grid(){  
     var columns = 16;
     var rows = 16;
 
@@ -17,3 +17,14 @@ function grid(){
     document.body.appendChild(grid);
 }
 grid();
+
+function draw(){
+    const row = document.querySelectorAll(".row");
+    const col = document.querySelector(".column");
+    row.forEach((col) => {
+        col.addEventListener('click', () => {
+            col.style.backgroundColor = 'black';
+        });
+    });
+}
+draw();
