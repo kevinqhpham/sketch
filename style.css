@@ -1,0 +1,18 @@
+.grid {
+    display: flex;
+    height: 350px;
+    width:350px;
+    
+}
+
+.column {
+    flex: 1; /* <--- required (style column to fill the same space as the other columns) */
+}
+
+.row {
+    margin: 0;
+    height: 20px;
+    border-style:solid;
+    border-width:1px;
+    text-align: center;
+}
