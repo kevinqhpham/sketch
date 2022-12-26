@@ -20,10 +20,9 @@ grid();
 
 function draw(){
     const row = document.querySelectorAll(".row");
-    const col = document.querySelector(".column");
-    row.forEach((col) => {
-        col.addEventListener('click', () => {
-            col.style.backgroundColor = 'black';
+    row.forEach((item) => {
+        item.addEventListener('click', () => {
+            item.style.backgroundColor = 'black';
         });
     });
 }
