@@ -2,6 +2,10 @@ var size = 0;
 const button = document.querySelector("#btn");
     button.addEventListener('click', () => {
         size = prompt("Enter size for dimensions of drawing board (MAX 100)");
+        if (document.getElementById("grid")) {
+            const rem = document.getElementById('grid');
+            rem.remove();
+        }
         grid();
         draw();
 });
@@ -9,6 +13,7 @@ const button = document.querySelector("#btn");
 function grid(){  
     var grid = document.createElement('div');
     grid.className = 'grid';
+    grid.setAttribute('id', 'grid');
     for (var i = 0; i < size; ++i) {
         var column = document.createElement('div'); // create column
         column.className = 'column';
