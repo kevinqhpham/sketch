@@ -1,4 +1,5 @@
-var size = 0;
+var size = 1;
+grid();
 const button = document.querySelector("#btn");
     button.addEventListener('click', () => {
         size = prompt("Enter size for dimensions of drawing board (MAX 100)");
@@ -11,14 +12,14 @@ const button = document.querySelector("#btn");
 });
 
 function grid(){  
-    var grid = document.createElement('div');
+    let grid = document.createElement('div');
     grid.className = 'grid';
     grid.setAttribute('id', 'grid');
-    for (var i = 0; i < size; ++i) {
-        var column = document.createElement('div'); // create column
+    for (let i = 0; i < size; ++i) {
+        let column = document.createElement('div'); // create column
         column.className = 'column';
-        for (var j = 0; j < size; ++j) {
-            var row = document.createElement('div'); // create row
+        for (let j = 0; j < size; ++j) {
+            let row = document.createElement('div'); // create row
             row.className = 'row';
             column.appendChild(row); // append row in column
         }
@@ -28,13 +29,22 @@ function grid(){
 }
 
 function draw(){
+    let drawing = false;
     const row = document.querySelectorAll(".row");
     row.forEach((item) => {
         item.addEventListener('mousedown', () => {
-            item.style.backgroundColor = 'black';
+            drawing = true;
         });
+        item.addEventListener('mousemove', () => {
+            if(drawing == true ){
+                item.style.backgroundColor = 'black';
+            }
+        });
+        item.addEventListener('mouseup', () => {
+            drawing = false;
+        })
     });
-}
 
+}
 
 
